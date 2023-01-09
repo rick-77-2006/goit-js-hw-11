@@ -1,7 +1,6 @@
 export default class LoadMore {
   constructor({ selector, hidden = false }) {
     this.refs = this.getRefs(selector);
-
     hidden && this.hide();
   }
 
