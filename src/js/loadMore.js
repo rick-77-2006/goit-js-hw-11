@@ -21,7 +21,7 @@ export default class LoadMore {
 
   disable() {
     this.refs.button.disabled = true;
-    this.refs.text.textContect = 'Loading...';
+    this.refs.text.textContect = 'Загружается...';
     this.refs.spiner.classList.remove('is-hidden');
   }
   show() {
