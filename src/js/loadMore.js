@@ -10,7 +10,6 @@ export default class LoadMore {
     refs.button = document.querySelector(selector);
     refs.text = refs.button.querySelector('.search-more__text');
     refs.spiner = refs.button.querySelector('.spinner');
-
     return refs;
   }
 

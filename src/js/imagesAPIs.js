@@ -32,7 +32,7 @@ export default class ImagesAPIService {
       this.incrementPage();
       return await response.data;
     } catch (error) {
-      throw new Error(`Oops, something went wrong`)
+      throw new Error(`Есть ошибыки, проверь`)
     }
   }
 
