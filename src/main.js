@@ -1,15 +1,12 @@
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-
-const form = document.querySelector(".form");
-const gallery = document.querySelector(".gallery");
-const container = document.querySelector("div");
-const inputDate = document.querySelector("input");
-
-
+const form = document.querySelector('.form');
+const gallery = document.querySelector('.gallery');
+const container = document.querySelector('div');
+const inputDate = document.querySelector('input');
 
 const showLoader = () => {
   const loader = document.createElement('span');
@@ -24,13 +21,12 @@ const hideLoader = () => {
   }
 };
 
-form.addEventListener("submit", (event) => {
+form.addEventListener('submit', event => {
   showLoader();
-   gallery.innerHTML = "";
-   event.preventDefault();
-   const searchTerm = inputDate.value;
-   searchImages(searchTerm);
-    
+  gallery.innerHTML = '';
+  event.preventDefault();
+  const searchTerm = inputDate.value;
+  searchImages(searchTerm);
 });
 
 function searchImages(searchTerm) {
@@ -47,13 +43,13 @@ function searchImages(searchTerm) {
     .then(data => {
       if (data.hits.length === 0) {
         iziToast.error({
-          message: 'Sorry, there are no images matching <br>your search query. Please try again!</br>',
+          message:
+            'Sorry, there are no images matching <br>your search query. Please try again!</br>',
           position: 'center',
-          transitionIn: "fadeInLeft",
+          transitionIn: 'fadeInLeft',
         });
-        hideLoader()
+        hideLoader();
       } else {
-        
         const markup = data.hits
           .map(data => {
             return `
@@ -64,16 +60,17 @@ function searchImages(searchTerm) {
           <p><b>Comments: </b>${data.comments}</p>
           <p><b>Downloads: </b>${data.downloads}</p>
           </li>`;
-          }).join('');
-        
-        gallery.insertAdjacentHTML("beforeend", markup);
+          })
+          .join('');
+
+        gallery.insertAdjacentHTML('beforeend', markup);
         const lightbox = new SimpleLightbox('.gallery a', {
           captions: true,
           captionType: 'attr',
           captionsData: 'alt',
           captionPosition: 'bottom',
           fadeSpeed: 150,
-          captionSelector: "img",
+          captionSelector: 'img',
           captionDelay: 250,
         });
 
@@ -81,9 +78,5 @@ function searchImages(searchTerm) {
         hideLoader();
       }
     })
-    .catch((error) => console.log(error));
-   
-};
-
-
-
+    .catch(error => console.log(error));
+}
