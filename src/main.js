@@ -34,7 +34,7 @@ form.addEventListener("submit", (event) => {
 });
 
 function searchImages(searchTerm) {
-  const apiKey = '41764579-b97d65b31c0abd4efd9d4830e';
+  const apiKey = '42318404-1173ca802dc215ae825a9e5c8';
   const url = `https://pixabay.com/api/?key=${apiKey}&q=${searchTerm}&image_type=photo&orientation=horizontal&safesearch=true`;
   fetch(url)
     .then(response => {
